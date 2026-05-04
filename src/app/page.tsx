@@ -1,0 +1,18 @@
+import Image from "next/image";
+import Hero from "@/components/Hero";
+import Portfolio from "@/components/Portfolio";
+import DigitalPortfolio from "@/components/DigitalPortfolio";
+import Capabilities from "@/components/Capabilities";
+import Contact from "@/components/Contact";
+
+export default function Home() {
+  return (
+    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <Hero />
+      <Portfolio />
+      <DigitalPortfolio />
+      <Capabilities />
+      <Contact />
+    </div>
+  );
+}
