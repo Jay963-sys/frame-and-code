@@ -1,92 +1,118 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AnimatedLine from "./AnimatedLine";
+import MagneticButton from "./MagneticButton";
 
 export default function Hero() {
-  // Easing curve for luxury feel
-  const smoothEase = [0.16, 1, 0.3, 1] as const;
-
-  // Variants for staggering the typography
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.5 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 40, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 1, ease: smoothEase },
-    },
-  };
-
+  // Short delays — hero now animates on mount. On first visit the loader covers
+  // these animations (which finish ~1.4s in), so by the time the loader fades
+  // the hero is fully revealed. On refreshes the loader is skipped and the
+  // user sees a fast, clean reveal instead of a blank screen for 3 seconds.
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background Media Wrapper */}
+    <section
+      id="index"
+      className="relative min-h-screen w-full flex items-end overflow-hidden pt-32 pb-16"
+    >
+      {/* Background video */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="object-cover w-full h-full opacity-30 mix-blend-luminosity"
+          className="object-cover w-full h-full opacity-25 mix-blend-luminosity"
         >
-          {/* Replace with your partner's actual high-end reel */}
           <source src="/6.mp4" type="video/mp4" />
         </video>
-        {/* Dark gradient overlay to ensure text pops */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212]/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c0a] via-transparent to-[#0d0c0a]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0c0a]/80 to-transparent" />
       </div>
 
-      {/* Typographic Content */}
+      {/* Top-left meta strip */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left flex flex-col items-center md:items-start"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-28 left-6 md:left-10 z-10 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-muted)]"
       >
-        <div className="overflow-hidden mb-2">
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-foreground"
-          >
-            Visuals that{" "}
-            <span className="text-brand-blue font-light italic">Define</span>
-          </motion.h1>
-        </div>
+        <span className="block w-8 h-px bg-[var(--color-accent)]" />
+        Studio · Est. 2025
+      </motion.div>
 
-        <div className="overflow-hidden mb-6">
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-8xl font-bold tracking-tighter uppercase text-foreground"
-          >
-            Code that{" "}
-            <span className="text-brand-blue font-light italic">Performs</span>.
-          </motion.h1>
-        </div>
+      {/* Top-right scrolling indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 1.4 }}
+        className="absolute top-32 right-6 md:right-10 z-10 hidden md:flex flex-col items-end gap-2 text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-muted)]"
+      >
+        <span>Reel — N° 01</span>
+        <span className="text-[var(--color-ink-dim)]">Lagos / Chicago</span>
+      </motion.div>
 
-        <div className="overflow-hidden mb-12 max-w-2xl text-center md:text-left">
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-400 text-lg md:text-xl font-light tracking-wide"
+      {/* Main typographic block */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
+        <h1 className="font-display text-[15vw] md:text-[7vw] leading-[0.92] tracking-[-0.02em] text-[var(--color-ink)]">
+          <AnimatedLine immediate delay={0.1}>
+            Visuals that
+          </AnimatedLine>
+          <br />
+          <AnimatedLine
+            immediate
+            delay={0.25}
+            className="italic text-[var(--color-accent)]"
           >
-            A specialized creative studio engineering bespoke digital
-            architectures and premium brand identities for the modern elite.
-          </motion.p>
-        </div>
+            define.
+          </AnimatedLine>
+          <br />
+          <AnimatedLine immediate delay={0.4}>
+            Code that
+          </AnimatedLine>
+          <br />
+          <AnimatedLine
+            immediate
+            delay={0.55}
+            className="italic text-[var(--color-accent)]"
+          >
+            performs.
+          </AnimatedLine>
+        </h1>
 
-        <motion.div variants={itemVariants}>
-          <a
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1.2 }}
+          className="mt-12 md:mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-10"
+        >
+          <p className="max-w-md text-[var(--color-ink-muted)] text-base md:text-lg leading-relaxed font-light">
+            A two-discipline studio. Premium photography and cinematography
+            paired with bespoke web engineering — built for clients who can tell
+            the difference.
+          </p>
+
+          <MagneticButton
             href="#contact"
-            className="inline-flex items-center justify-center px-10 py-4 bg-transparent border border-white/20 text-foreground uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-background transition-colors duration-500 ease-out"
+            className="px-10 py-4 border border-[var(--color-line-strong)] text-[var(--color-ink)] uppercase tracking-[0.25em] text-xs hover:bg-[var(--color-ink)] hover:text-[var(--color-bg)] transition-colors duration-500"
           >
-            Explore Our Services
-          </a>
+            Begin a Commission →
+          </MagneticButton>
         </motion.div>
+      </div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ delay: 1.6, duration: 1 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[10px] uppercase tracking-[0.4em] text-[var(--color-ink-muted)] flex flex-col items-center gap-2"
+      >
+        <span>Scroll</span>
+        <motion.span
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="block w-px h-8 bg-[var(--color-ink-muted)]"
+        />
       </motion.div>
     </section>
   );

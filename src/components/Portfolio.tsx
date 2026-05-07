@@ -6,48 +6,57 @@ import { visualPortfolio } from "@/lib/data";
 
 export default function Portfolio() {
   return (
-    <section id="visuals" className="py-32 px-6 max-w-7xl mx-auto">
-      {/* Section Header */}
-      <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8">
-        <div>
-          <h2 className="text-sm text-brand-blue uppercase tracking-[0.3em] mb-4">
-            The Frame
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-light tracking-tight text-foreground">
-            Visual <span className="font-bold">Production.</span>
-          </h3>
-        </div>
-        <p className="text-gray-400 max-w-sm mt-6 md:mt-0 text-sm">
-          High-fidelity photography and cinematography tailored for premium
-          brand identities.
-        </p>
+    <section
+      id="visuals"
+      className="relative py-32 md:py-48 px-6 md:px-10 max-w-[1400px] mx-auto"
+    >
+      {/* Section index */}
+      <div className="flex items-center gap-4 mb-20 text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-muted)]">
+        <span className="text-[var(--color-accent)]">02</span>
+        <span className="block w-12 h-px bg-[var(--color-line-strong)]" />
+        Visuals — The Frame
       </div>
 
-      {/* Editorial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+      {/* Header */}
+      <div className="grid grid-cols-12 gap-6 md:gap-10 mb-20">
+        <div className="col-span-12 md:col-span-7">
+          <h2 className="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight text-[var(--color-ink)]">
+            Selected{" "}
+            <span className="italic text-[var(--color-accent)]">work.</span>
+          </h2>
+        </div>
+        <div className="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
+          <p className="text-[var(--color-ink-muted)] text-sm leading-relaxed">
+            Editorial, commercial, and brand photography for clients who treat
+            image as identity.
+          </p>
+        </div>
+      </div>
+
+      {/* Asymmetric editorial grid */}
+      <div className="grid grid-cols-12 gap-4 md:gap-6">
         {visualPortfolio.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{
-              duration: 0.8,
-              delay: index * 0.1,
+              duration: 1,
+              delay: index * 0.08,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className={`relative group overflow-hidden bg-[#1a1a1a] rounded-sm ${project.span || ""}`}
+            data-cursor="hover"
+            className={`relative group overflow-hidden bg-[var(--color-bg-raised)] ${project.span}`}
           >
-            {/* Base Image */}
             <Image
               src={project.imageUrl}
               alt={project.title}
               fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
             />
 
-            {/* Video Overlay (Fades in on hover) */}
             {project.videoUrl && (
               <video
                 src={project.videoUrl}
@@ -55,21 +64,24 @@ export default function Portfolio() {
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out z-10"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out z-10"
               />
             )}
 
-            {/* Gradient Overlay for Text Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 transition-opacity duration-500 z-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-transparent opacity-70 z-20" />
 
-            {/* Typographic Overlay */}
-            <div className="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
-              <p className="text-brand-orange text-xs uppercase tracking-[0.2em] mb-3 font-semibold drop-shadow-md">
-                {project.category}
-              </p>
-              <h4 className="text-2xl text-foreground font-light tracking-tight drop-shadow-lg">
-                {project.title}
-              </h4>
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-30 flex items-end justify-between">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-accent)] mb-2">
+                  {project.category}
+                </p>
+                <h4 className="font-display text-2xl md:text-3xl text-[var(--color-ink)] leading-tight">
+                  {project.title}
+                </h4>
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-muted)] hidden md:block">
+                {String(index + 1).padStart(2, "0")} / {String(visualPortfolio.length).padStart(2, "0")}
+              </span>
             </div>
           </motion.div>
         ))}

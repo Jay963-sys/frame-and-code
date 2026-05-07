@@ -9,79 +9,101 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 pt-20 pb-10 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Top Section: Brand & Locations */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-12">
-          {/* Brand Identity */}
-          <div>
-            <Link
-              href="/"
-              className="text-2xl font-bold tracking-widest uppercase block mb-4"
-            >
-              Frame<span className="text-brand-blue font-light">&</span>Code
-            </Link>
-            <p className="text-gray-500 text-sm max-w-xs">
+    <footer className="relative bg-[var(--color-bg-raised)] border-t border-[var(--color-line)] pt-32 pb-10 px-6 md:px-10 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Oversized brand mark */}
+        <div className="border-b border-[var(--color-line-strong)] pb-16 mb-12">
+          <h2 className="font-display text-[18vw] md:text-[12vw] leading-[0.85] tracking-[-0.03em] text-[var(--color-ink)]">
+            Frame <span className="italic text-[var(--color-accent)]">&amp;</span> Code
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-20">
+          {/* Brand */}
+          <div className="col-span-12 md:col-span-4">
+            <p className="text-[var(--color-ink-muted)] text-sm max-w-xs leading-relaxed">
               A specialized creative studio engineering bespoke digital
               architectures and premium brand identities.
             </p>
           </div>
 
-          {/* Global Presence */}
-          <div className="flex gap-16">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-brand-orange mb-4 font-medium">
-                Studio
-              </p>
-              <ul className="space-y-2 text-gray-400 text-sm"></ul>
-            </div>
+          {/* Studios */}
+          <div className="col-span-6 md:col-span-2 md:col-start-7">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">
+              Studios
+            </p>
+            <ul className="space-y-2 text-[var(--color-ink-muted)] text-sm">
+              <li>Lagos, NG</li>
+              <li>Chicago, IL</li>
+            </ul>
+          </div>
 
-            {/* Quick Links */}
-            <div>
-              <p className="text-xs uppercase tracking-widest text-brand-blue mb-4 font-medium">
-                Connect
-              </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-foreground transition-colors duration-300"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-foreground transition-colors duration-300"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:hello@frameandcode.com"
-                    className="hover:text-foreground transition-colors duration-300"
-                  >
-                    Email Us
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Connect */}
+          <div className="col-span-6 md:col-span-2">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">
+              Connect
+            </p>
+            <ul className="space-y-2 text-sm text-[var(--color-ink-muted)]">
+              <li>
+                <a href="#" className="hover:text-[var(--color-ink)] transition-colors">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[var(--color-ink)] transition-colors">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:hello@frameandcode.com"
+                  className="hover:text-[var(--color-ink)] transition-colors"
+                >
+                  Email
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Index */}
+          <div className="col-span-12 md:col-span-2">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">
+              Index
+            </p>
+            <ul className="space-y-2 text-sm text-[var(--color-ink-muted)]">
+              <li>
+                <Link href="#about" className="hover:text-[var(--color-ink)] transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="#visuals" className="hover:text-[var(--color-ink)] transition-colors">
+                  Visuals
+                </Link>
+              </li>
+              <li>
+                <Link href="#digital" className="hover:text-[var(--color-ink)] transition-colors">
+                  Digital
+                </Link>
+              </li>
+              <li>
+                <Link href="#process" className="hover:text-[var(--color-ink)] transition-colors">
+                  Process
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Section: Legal & Back to Top */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-500 uppercase tracking-widest">
-          <p>© {new Date().getFullYear()} Frame & Code. All rights reserved.</p>
-
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[var(--color-line-strong)] text-[10px] text-[var(--color-ink-dim)] uppercase tracking-[0.3em] gap-6">
+          <p>© {new Date().getFullYear()} Frame &amp; Code — All rights reserved</p>
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-3 hover:text-foreground transition-colors duration-300 mt-6 md:mt-0"
+            className="group flex items-center gap-3 hover:text-[var(--color-ink)] transition-colors"
           >
-            <span>Back to Top</span>
-            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:-translate-y-1 transition-all duration-300">
-              <ArrowUp size={14} />
+            <span>Back to top</span>
+            <div className="w-8 h-8 rounded-full border border-[var(--color-line-strong)] flex items-center justify-center group-hover:border-[var(--color-accent)] group-hover:-translate-y-1 transition-all duration-300">
+              <ArrowUp size={12} />
             </div>
           </button>
         </div>

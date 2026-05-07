@@ -1,19 +1,85 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #121212;
-  --color-foreground: #ffffff;
-  --color-brand-blue: #1048dd;
-  --color-brand-orange: #ff8c00;
+  --color-bg: #0d0c0a;
+  --color-bg-raised: #15130f;
+  --color-bg-sunken: #08070540;
+
+  --color-ink: #f4ede1;
+  --color-ink-muted: #a39d8e;
+  --color-ink-dim: #5a564d;
+
+  --color-accent: #c89b5a;
+  --color-accent-soft: #c89b5a26;
+
+  --color-line: #f4ede10d;
+  --color-line-strong: #f4ede11a;
+
+  --font-display: var(--font-display-load), "Times New Roman", serif;
+  --font-sans: var(--font-sans-load), system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-bg);
+  color: var(--color-ink);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.line-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.1;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 60s linear infinite;
+}
+
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
