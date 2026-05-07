@@ -42,11 +42,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Frame & Code — Visuals & Digital Architecture",
     description:
-      "A two-discipline studio. Premium photography and cinematography paired with bespoke web engineering. Working between Lagos and Chicago.",
+      "A two-discipline studio. Premium videography paired with bespoke web engineering. Working between Lagos and Chicago.",
     siteName: "Frame & Code",
     images: [
       {
-        url: "/og.jpg",
+        url: "/logo.svg",
         width: 1200,
         height: 630,
         alt: "Frame & Code",
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Frame & Code — Visuals & Digital Architecture",
     description:
-      "A two-discipline studio. Photography, cinematography, and bespoke web engineering.",
-    images: ["/og.jpg"],
+      "A two-discipline studio. Videography, and bespoke web engineering.",
+    images: ["/logo.svg"],
   },
 };
 
