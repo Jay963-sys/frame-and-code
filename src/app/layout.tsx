@@ -1,10 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter_Tight } from "next/font/google";
+import { Instrument_Serif, Inter_Tight, Fraunces } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
+
+const displayFont = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-display-load",
+  display: "swap",
+});
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -64,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${interTight.variable}`}
+      className={`${displayFont.variable} ${interTight.variable}`}
     >
       <body className="grain antialiased">
         <Loader />

@@ -27,7 +27,7 @@ export default function Portfolio() {
         </div>
         <div className="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
           <p className="text-[var(--color-ink-muted)] text-sm leading-relaxed">
-            Editorial, commercial, and brand photography for clients who treat
+            Editorial, commercial, and brand videography for clients who treat
             image as identity.
           </p>
         </div>
@@ -80,7 +80,8 @@ export default function Portfolio() {
                 </h4>
               </div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-muted)] hidden md:block">
-                {String(index + 1).padStart(2, "0")} / {String(visualPortfolio.length).padStart(2, "0")}
+                {String(index + 1).padStart(2, "0")} /{" "}
+                {String(visualPortfolio.length).padStart(2, "0")}
               </span>
             </div>
           </motion.div>

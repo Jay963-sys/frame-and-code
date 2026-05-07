@@ -36,8 +36,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 2.4 }}
-        className={`fixed top-0 w-full z-[90] transition-colors duration-500 ${
-          scrolled ? "bg-[#0d0c0a]/85 backdrop-blur-md border-b border-[var(--color-line)]" : ""
+        className={`fixed top-0 w-full z-[90] border-b transition-all duration-500 ${
+          scrolled
+            ? "bg-[#0d0c0a]/85 backdrop-blur-md border-[var(--color-line)]"
+            : "bg-transparent border-transparent"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
@@ -45,7 +47,9 @@ export default function Navbar() {
             href="#index"
             className="font-display text-2xl tracking-tight text-[var(--color-ink)]"
           >
-            Frame <span className="italic text-[var(--color-accent)]">&amp;</span> Code
+            Frame{" "}
+            <span className="italic text-[var(--color-accent)]">&amp;</span>{" "}
+            Code
           </Link>
 
           {/* Desktop links — minimal, just numbered indices */}
@@ -56,7 +60,9 @@ export default function Navbar() {
                 href={l.href}
                 className="group relative py-2 hover:text-[var(--color-ink)] transition-colors"
               >
-                <span className="text-[var(--color-ink-dim)] mr-2">{l.number}</span>
+                <span className="text-[var(--color-ink-dim)] mr-2">
+                  {l.number}
+                </span>
                 {l.name}
               </Link>
             ))}
@@ -104,7 +110,11 @@ export default function Navbar() {
                   key={l.name}
                   initial={{ y: 24, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    delay: 0.1 + i * 0.05,
+                    duration: 0.6,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                 >
                   <Link
                     href={l.href}

@@ -10,7 +10,7 @@ export type VisualProject = {
     | "Fashion";
   imageUrl: string;
   videoUrl?: string;
-  span?: string; // tailwind grid span classes
+  span?: string;
 };
 
 export type DigitalProject = {
@@ -20,18 +20,10 @@ export type DigitalProject = {
   description: string;
   techStack: string[];
   imageUrl: string;
+  /** URL to the live deployed site. If omitted, the row stays informational (no link). */
+  liveUrl?: string;
 };
 
-/**
- * Visual portfolio — uses placeholder Unsplash imagery and the existing
- * mp4 reels in /public. Replace with real client work before launch.
- *
- * The asymmetric grid spans below produce a 12-col editorial layout:
- *   v1: large left tile  (col-span-7, row-span-2)
- *   v2: top-right tile   (col-span-5)
- *   v3: bottom-right     (col-span-5)
- *   v4: full-width strip (col-span-12)
- */
 export const visualPortfolio: VisualProject[] = [
   {
     id: "v1",
@@ -39,7 +31,7 @@ export const visualPortfolio: VisualProject[] = [
     category: "Music",
     imageUrl:
       "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1400&auto=format&fit=crop",
-    videoUrl: "/1.mp4",
+    videoUrl: "/rema.mp4",
     span: "col-span-12 md:col-span-7 row-span-2 aspect-[4/5] md:aspect-auto md:min-h-[820px]",
   },
   {
@@ -48,7 +40,7 @@ export const visualPortfolio: VisualProject[] = [
     category: "Real Estate",
     imageUrl:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop",
-    videoUrl: "/2.mp4",
+    videoUrl: "/estate.mp4",
     span: "col-span-12 md:col-span-5 aspect-[4/5] md:aspect-[5/4]",
   },
   {
@@ -57,29 +49,21 @@ export const visualPortfolio: VisualProject[] = [
     category: "Editorial",
     imageUrl:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1400&auto=format&fit=crop",
-    videoUrl: "/3.mp4",
+    videoUrl: "/vogue.mp4",
     span: "col-span-12 md:col-span-5 aspect-[4/5] md:aspect-[5/4]",
-  },
-  {
-    id: "v4",
-    title: "Atelier — Spring Capsule",
-    category: "Fashion",
-    imageUrl:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "/4.mp4",
-    span: "col-span-12 aspect-[16/9] md:aspect-[21/9]",
   },
 ];
 
 export const digitalPortfolio: DigitalProject[] = [
   {
     id: "d1",
-    title: "Luxzy Bespoke",
-    category: "Luxury E-Commerce",
+    title: "Toye Studios",
+    category: "Full-Stack Application",
     description:
-      "A high-performance digital storefront featuring a custom sizing-guide algorithm and a dark-mode editorial aesthetic tailored for luxury footwear.",
-    techStack: ["Next.js", "TypeScript", "Tailwind"],
-    imageUrl: "/1.png",
+      "A high-performance digital gallery for showcasing creative work.",
+    techStack: ["React", "Node", "Postgres"],
+    imageUrl: "/toye.png",
+    liveUrl: "https://Toyestudios.co.uk",
   },
   {
     id: "d2",
@@ -87,17 +71,39 @@ export const digitalPortfolio: DigitalProject[] = [
     category: "Algorithmic Automation",
     description:
       "A continuous market-monitoring service designed to analyse data windows and execute automated sequences over high-speed API connections.",
-    techStack: ["Python", "Architecture", "API"],
+    techStack: ["JavaScript", "Architecture", "API"],
     imageUrl:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    liveUrl: "https://github.com/Jay963-sys/poly-sniper-bot",
   },
   {
     id: "d3",
-    title: "Event Ticketing Architecture",
+    title: "Luxzy Bespoke",
     category: "Full-Stack Application",
     description:
-      "A custom, highly scalable ticketing and access-management system designed for seamless flow during high-demand event launches.",
+      "A high-performance digital storefront featuring a custom sizing-guide algorithm and a dark-mode editorial aesthetic tailored for luxury footwear.",
     techStack: ["React", "Node", "Postgres"],
-    imageUrl: "/3.png",
+    imageUrl: "/luxzy.png",
+    liveUrl: "https://luxzybespoke.com",
+  },
+  {
+    id: "d4",
+    title: "NOC Fault Logger",
+    category: "Full-Stack Application",
+    description:
+      "A real-time logging solution for monitoring and tracking faults in network operations.",
+    techStack: ["JavaScript", "Architecture", "API"],
+    imageUrl: "/noc.png",
+    liveUrl: "https://github.com/Jay963-sys/NOC-INCIDENT-TRACKER", // ← Replace with the real URL
+  },
+  {
+    id: "d5",
+    title: "Bhoye Visuals",
+    category: "Full-Stack Application",
+    description:
+      "A high-performance digital gallery for showcasing creative work.",
+    techStack: ["React", "Node", "Postgres"],
+    imageUrl: "/bhoye.png",
+    liveUrl: "https://bhoyevisuals.com",
   },
 ];

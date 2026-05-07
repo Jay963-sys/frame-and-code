@@ -8,7 +8,7 @@ const principals = [
     role: "Direction · Visuals",
     name: "Bhoye Visuals",
     location: "Chicago, IL",
-    bio: "A commercial and editorial photographer with a decade of work across luxury real estate, fashion, and music. Has shot for WHO, Martell, and Rivian.",
+    bio: "A commercial and editorial videographer with a decade of work across luxury real estate, fashion, and music. Has shot for WHO, Martell, and Rivian.",
   },
   {
     role: "Direction · Engineering",

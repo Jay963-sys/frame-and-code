@@ -8,7 +8,7 @@ const serviceOptions = [
   {
     id: "visuals",
     label: "Visual Production",
-    description: "Photography & Cinematography",
+    description: "Videography & Cinematography",
   },
   {
     id: "digital",

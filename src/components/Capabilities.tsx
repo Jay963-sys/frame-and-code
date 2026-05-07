@@ -7,7 +7,7 @@ const services = [
     title: "The Frame",
     subtitle: "Visual Production",
     items: [
-      "Commercial Photography",
+      "Commercial Videography",
       "Cinematography",
       "Editorial & Brand Shoots",
       "Creative Direction",
@@ -55,7 +55,9 @@ export default function Capabilities() {
           <div className="col-span-12 md:col-span-9">
             <h2 className="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight text-[var(--color-ink)]">
               An integrated approach to{" "}
-              <span className="italic text-[var(--color-accent)]">modern luxury.</span>
+              <span className="italic text-[var(--color-accent)]">
+                modern luxury.
+              </span>
             </h2>
           </div>
         </div>
@@ -86,7 +88,9 @@ export default function Capabilities() {
                     key={item}
                     className="text-[var(--color-ink-muted)] text-sm tracking-wide flex items-start gap-3"
                   >
-                    <span className="text-[var(--color-ink-dim)] mt-1 block">―</span>
+                    <span className="text-[var(--color-ink-dim)] mt-1 block">
+                      ―
+                    </span>
                     {item}
                   </li>
                 ))}
