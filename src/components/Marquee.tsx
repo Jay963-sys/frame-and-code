@@ -3,7 +3,6 @@
 const items = [
   "Photography",
   "Full-Stack Engineering",
-
   "Cinematography",
   "Web Architecture",
   "Editorial Direction",
