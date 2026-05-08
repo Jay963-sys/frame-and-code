@@ -45,6 +45,7 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
           <Link
             href="#index"
+            onClick={() => setOpen(false)}
             className="font-display text-2xl tracking-tight text-[var(--color-ink)]"
           >
             Frame{" "}
