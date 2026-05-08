@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="index"
-      className="relative min-h-screen w-full flex items-end overflow-hidden pt-32 pb-16"
+      className="relative min-h-screen w-full flex items-end overflow-hidden pt-32 pb-28 md:pb-16"
     >
       {/* Background video */}
       <div className="absolute inset-0 z-0">
@@ -105,9 +105,10 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.6, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[10px] uppercase tracking-[0.4em] text-[var(--color-ink-muted)] flex flex-col items-center gap-2"
+        className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-10 text-[10px] uppercase tracking-[0.4em] text-[var(--color-ink-muted)] hidden sm:flex flex-col items-center gap-2"
       >
         <span>Scroll</span>
+
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
